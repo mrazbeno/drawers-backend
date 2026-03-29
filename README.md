@@ -1,0 +1,21 @@
+# Content summary
+A small JavaScript Express server, responsible for managing member hubs/rooms and routing WebSocket messages between clients of the collaborative drawing app called Drawers. 
+Other parts of this application are:
+  -  [Frontend](https://github.com/mrazbeno/drawers-frontend)
+  -  [Shared types](https://github.com/mrazbeno/drawers-shared)
+
+# Features
+
+### Member rooms
+Users are grouped into virtual sets called rooms. A small ID identifies a room, and joining is possible via sharing it. Inside a room, messages are generally broadcasted. 
+### Member roles
+Every room has an admin/owner, initially the creator, who can perform authoritative tasks and special canvas actions, such as clearing it. A room always has an owner; the role gets inherited.
+### Realtime syncing
+The state of the canvas and the room are always synchronized, in realtime, in a streaming manner via WebSockets.
+### Late join handling
+A snapshot is served of the current state of the canvas to members who joined after work has been done on the canvas. 
+
+# Future improvements
+  -  Code separation
+  -  Stricter message sender validation
+  -  More descriptive event names
