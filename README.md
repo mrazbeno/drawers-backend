@@ -1,8 +1,9 @@
 WebSocket backend server for the [Drawers](https://github.com/mrazbeno/drawers-frontend) app.
 
+**Not actively developed.**
+
 # Content summary
 A small JavaScript Express server, responsible for managing member hubs/rooms and routing WebSocket messages between clients of the collaborative drawing app called Drawers. 
-
 
 # Features
 
@@ -13,7 +14,7 @@ Every room has an admin/owner, initially the creator, who can perform authoritat
 ### Realtime syncing
 The state of the canvas and the room are always synchronized, in realtime, in a streaming manner via WebSockets.
 ### Late join handling
-A snapshot is served of the current state of the canvas to members who joined after work has been done on the canvas. 
+A snapshot of the current state of the canvas is served to members who joined after some work has been done. 
 
 # Future improvements
   -  Code separation
