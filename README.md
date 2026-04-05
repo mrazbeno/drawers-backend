@@ -13,7 +13,7 @@ Every room has an admin/owner, initially the creator, who can perform authoritat
 ### Realtime syncing
 The state of the canvas and the room are always synchronized, in realtime, in a streaming manner via WebSockets.
 ### Late join handling
-A snapshot is served of the current state of the canvas to members who joined after work has been done on the canvas. 
+A snapshot is served of the current state of the canvas to members who joined after work has been done on it. 
 
 # Future improvements
   -  Code separation

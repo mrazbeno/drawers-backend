@@ -17,7 +17,7 @@
     "nanoid": "^5.1.6",
     "socket.io": "^4.8.1",
 
-  "drawers-shared": "github:mrazbeno/drawers-shared#v0.1.0"
+  "drawers-shared": "github:mrazbeno/drawers-shared#v0.1.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
