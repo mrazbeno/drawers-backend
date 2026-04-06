@@ -1,6 +1,8 @@
-WebSocket backend server for the [Drawers](https://github.com/mrazbeno/drawers-frontend) app.
+This is a repository of the Drawers app.
 
-**Not actively developed.**
+Other parts of this application are:
+  -  **[drawers-frontend](https://github.com/mrazbeno/drawers-frontend)**
+  -  [drawers-shared](https://github.com/mrazbeno/drawers-shared)
 
 # Content summary
 A small JavaScript Express server, responsible for managing member hubs/rooms and routing WebSocket messages between clients of the collaborative drawing app called Drawers. 
