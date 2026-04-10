@@ -216,12 +216,21 @@ app.post("/rooms", (_req, res) => {
     res.status(201).json({ roomId });
 });
 
-const usernameRegex = /^(?=.*[A-Za-z0-9])[A-Za-z0-9]+(?: [A-Za-z0-9]+)*$/;
+// TODO: put username validation params in the shared package 
 
-function isValidUsername(username: string): boolean {
+const usernameRegex = /^(?=.*[A-Za-z0-9])[A-Za-z0-9]+(?: [A-Za-z0-9]+)*$/;
+const MAX_USR_LEN = 24
+const MIN_USR_LEN = 3
+
+function isValidUsername(username: string): string | null {
     const trimmed = username.trim();
-    if (trimmed.length < 3 || trimmed.length > 24) return false;
-    return usernameRegex.test(trimmed);
+    if (trimmed.length < MIN_USR_LEN || trimmed.length > MAX_USR_LEN) 
+        return "Username must be between 3-24 characters.";
+
+    if (!usernameRegex.test(trimmed))
+        return "Username must only contain letters and numbers."
+
+    return null
 }
 
 app.get("/rooms/:roomId", (req, res) => {
@@ -243,9 +252,9 @@ app.post("/validate_username", (req, res) => {
         return res.status(404).json({ error: "Room not found" });
     }
 
-    const validName = isValidUsername(username);
-    if (!validName) {
-        return res.status(400).json({ error: "Invalid username" });
+    const validationErrorMsg = isValidUsername(username);
+    if (validationErrorMsg !== null) {
+        return res.status(400).json({ error: validationErrorMsg });
     }
 
     if (Array.from(roomExists.users.values()).includes(username)) {
